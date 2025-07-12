@@ -1,0 +1,72 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
+
+* {
+  font-family: "Open Sans", sans-serif;
+}
+
+#content1 {
+  background-image: url("../../../assets/xicara-cafe-leite.png");
+  background-size: cover;
+  background-position: -220px;
+}
+
+#content2 {
+  background-color: #3f3b2f;
+}
+
+#overlay1 {
+  background-color: rgba(63, 59, 47, 0.81);
+  height: 100%;
+  padding-top: 30%;
+  padding-left: 15%;
+  padding-right: 30%;
+}
+
+#form {
+  padding-top: 30%;
+}
+
+input {
+  font-size: 1.2rem;
+  border: none;
+  padding-top: 0;
+  padding-left: 0;
+  font-weight: bold;
+  background-color: transparent;
+}
+
+label {
+  margin-bottom: 0;
+  font-size: 0.9rem;
+}
+
+#emailForm {
+  border-radius: 50px;
+  padding-left: 30px;
+}
+
+#senhaForm {
+  border-radius: 50px;
+  padding-left: 30px;
+}
+
+#actions {
+  margin-top: 50px;
+}
+
+#actions a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+}
+
+#actions button {
+  background-color: #b9f548; /* verde claro */
+  border: none;
+  color: black;
+  border-radius: 25px;
+  font-size: 0.8rem;
+  width: 30%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}

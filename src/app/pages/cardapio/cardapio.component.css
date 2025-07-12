@@ -1,0 +1,20 @@
+div{
+    background-color: #3f3b2f;
+}
+
+#containerP{
+    width: 90%;
+}
+
+button {
+  background-color: #b9f548; /* verde claro */
+  border: none;
+  color: black;
+  border-radius: 25px;
+  font-size: 0.8rem;
+  width: 10%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-transform: uppercase;
+  margin-top: 1rem;
+}

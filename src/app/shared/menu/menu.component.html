@@ -1,0 +1,21 @@
+<nav class="navbar navbar-expand-lg ">
+  <div class="d-flex justify-content-between w-100">
+    <img class="m-2" src="../../../assets/logo.svg" alt="" />
+
+      
+      <ul class="navbar-nav me-4 mt-2">
+        <li class="nav-item" *ngFor="let item of menu">
+          <a
+            class="nav-link text-uppercase"
+            [routerLink]="item.rota"
+            routerLinkActive="active"
+            *ngIf="item.niveis.includes(nivel)"
+          >
+            {{ item.descricao }}
+          </a>
+        </li>
+      </ul>
+    
+
+  </div>
+</nav>

@@ -1,0 +1,25 @@
+<div class="d-flex w-100 h-100 bg-transparent">
+  <div id="content1" class="col-md-6">
+    <div id="overlay1">
+        <h2 id="h2overlay" class="text-white fw-bold fs-1">Realize o Login</h2>
+        <p class="text-white fs-4 fw-bold mt-5">Com seu cadastro GoCoffee você terá acesso ao cardápio, poderá fazer os pedidos e acumular pontos!</p>
+    </div>
+  </div>
+  <div id="content2" class="col-md-6">
+    <form [formGroup]="formGroup" (ngSubmit)="onSubmit()" id="form" class="w-50 m-auto ">
+      <div id="emailForm" class="mb-3 bg-white">
+        <label class="form-label">Email</label>
+        <input formControlName="login" type="text" class="form-control" id="email" placeholder="Digite seu Email...">
+      </div>
+      <div id="senhaForm" class="mb-3 bg-white">
+        <label class="form-label">Senha</label>
+        <input formControlName="senha" type="password" class="form-control" id="senha" placeholder="Digite sua Senha...">
+      </div>
+
+      <div id="actions" class="d-flex justify-content-between align-items-center">
+        <a routerLink="/cadastro" class="link-criar-conta">Criar conta</a>
+        <button type="submit" class="btn btn-login">LOGAR</button>
+      </div>
+    </form>
+  </div>
+</div>
