@@ -1,0 +1,21 @@
+<div class="container">
+  <h2>Histórico de Resgates de Pontuação</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Data</th>
+        <th>Descrição</th>
+        <th>Pontos Resgatados</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let resgate of resgates">
+        <td>{{ resgate.id }}</td>
+        <td>{{ resgate.data }}</td>
+        <td>{{ resgate.descricao }}</td>
+        <td>{{ resgate.pontos }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
