@@ -1,0 +1,25 @@
+<div class="container">
+  <h2>Pedidos Recebidos</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Data</th>
+        <th>Mesa</th>
+        <th>Situação</th>
+        <th>Valor Total</th>
+        <th>Pontos</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let pedido of pedidos">
+        <td>{{ pedido.id }}</td>
+        <td>{{ pedido.data }}</td>
+        <td>{{ pedido.mesa }}</td>
+        <td>{{ pedido.situacao }}</td>
+        <td>{{ pedido.valorTotal | currency:'BRL' }}</td>
+        <td>{{ pedido.pontos }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

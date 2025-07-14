@@ -1,0 +1,23 @@
+<div class="container">
+  <h2>Lista de Pessoas</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nome</th>
+        <th>Sexo</th>
+        <th>Endereço</th>
+        <th>Pontuação</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let pessoa of pessoas">
+        <td>{{ pessoa.id }}</td>
+        <td>{{ pessoa.nome }}</td>
+        <td>{{ pessoa.sexo }}</td>
+        <td>{{ pessoa.endereco }}</td>
+        <td>{{ pessoa.pontuacao }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
