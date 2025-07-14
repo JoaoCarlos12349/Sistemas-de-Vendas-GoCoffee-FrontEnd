@@ -1,12 +1,11 @@
-div{
-    background-color: #3f3b2f;
+#containerP2 {
+  width: 90%;
+}
+#containerP1 {
+  background-color: #3f3b2f;
 }
 
-#containerP{
-    width: 90%;
-}
-
-button {
+#next {
   background-color: #b9f548; /* verde claro */
   border: none;
   color: black;
@@ -17,4 +16,8 @@ button {
   padding-bottom: 10px;
   text-transform: uppercase;
   margin-top: 1rem;
+}
+
+.card{
+  border: none;
 }
