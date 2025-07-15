@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PedidoService } from '../../services/pedido.service';
-import { Pedido } from '../../models/pedido.model';
+import { Pedido } from '../../models/pedido';
+import { CurrencyPipe } from '@angular/common';
 
 @Component({
   selector: 'app-pedido-list',
@@ -16,7 +17,7 @@ export class PedidoListComponent implements OnInit {
   }
 
   getAllPedidos(): void {
-    this.pedidoService.getAll().subscribe((data) => {
+    this.pedidoService.listar().subscribe((data) => {
       this.pedidos = data;
     });
   }

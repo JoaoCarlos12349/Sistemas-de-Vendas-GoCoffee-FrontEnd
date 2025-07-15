@@ -6,7 +6,7 @@ import { Pessoa } from '../../models/pessoa';
 
 @Component({
   selector: 'app-pessoa-list',
-  templateUrl: './pessoa-list.component.html'
+  templateUrl: './pessoa.component.html'
 })
 export class PessoaListComponent implements OnInit {
   pessoas: Pessoa[] = [];
@@ -18,7 +18,7 @@ export class PessoaListComponent implements OnInit {
   }
 
   getAllPessoas(): void {
-    this.pessoaService.getAll().subscribe((data) => {
+    this.pessoaService.listar().subscribe((data) => {
       this.pessoas = data;
     });
   }

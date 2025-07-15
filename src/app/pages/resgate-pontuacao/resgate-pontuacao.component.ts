@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ResgatePontuacaoService } from '../../services/resgate-pontuacao.service';
-import { ResgatePontuacao } from '../../models/resgate-pontuacao.model';
-ng add @angular/material
+import { ResgatePontuacao } from '../../models/resgate-pontuacao';
+
 
 
 @Component({
@@ -18,7 +18,7 @@ export class ResgatePontuacaoComponent implements OnInit {
   }
 
   getAllResgates(): void {
-    this.resgatePontuacaoService.getAll().subscribe((data) => {
+    this.resgatePontuacaoService.listar().subscribe((data) => {
       this.resgates = data;
     });
   }
