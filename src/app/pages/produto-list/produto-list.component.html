@@ -1,1 +1,7 @@
-<p>produto-list works!</p>
+<form (ngSubmit)="salvarProduto()">
+  <input type="text" [(ngModel)]="produto.nome" name="nome" placeholder="Nome do produto" required />
+  <input type="text" [(ngModel)]="produto.preco" name="preco" placeholder="Preço" required />
+  <input type="file" (change)="onFileSelected($event)" accept="image/*" required />
+
+  <button type="submit">Salvar</button>
+</form>

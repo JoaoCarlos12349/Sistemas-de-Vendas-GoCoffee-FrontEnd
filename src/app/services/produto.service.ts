@@ -18,12 +18,12 @@ export class ProdutoService {
     return this.http.get<Produto[]>(this.apiUrl, this.loginService.gerarCabecalhoHTTP());
   }
 
-  salvar(produto: Produto): Observable<Produto> {
-    if (produto.id) {
-      return this.http.put<Produto>(`${this.apiUrl}/${produto.id}`, produto, this.loginService.gerarCabecalhoHTTP());
-    } else {
+  salvar(produto: FormData): Observable<Produto> {
       return this.http.post<Produto>(this.apiUrl, produto, this.loginService.gerarCabecalhoHTTP());
-    }
+  }
+
+  alterar(produto: Produto): Observable<Produto> {
+      return this.http.put<Produto>(`${this.apiUrl}/${produto.id}`, produto, this.loginService.gerarCabecalhoHTTP());
   }
 
   buscarPorId(id: number): Observable<Produto> {

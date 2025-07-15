@@ -20,7 +20,7 @@
         >
           <h5 class="card-title">{{ produto.nome }}</h5>
           <img
-            [src]=""
+            [src]="'http://localhost:8080/img/' + produto.imagem"
             class="card-img-top"
             [alt]="produto.nome"
             style="height: 200px; object-fit: cover"
