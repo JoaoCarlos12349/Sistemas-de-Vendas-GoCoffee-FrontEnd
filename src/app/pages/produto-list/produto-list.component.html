@@ -1,7 +1,109 @@
-<form (ngSubmit)="salvarProduto()">
-  <input type="text" [(ngModel)]="produto.nome" name="nome" placeholder="Nome do produto" required />
-  <input type="text" [(ngModel)]="produto.preco" name="preco" placeholder="Preço" required />
-  <input type="file" (change)="onFileSelected($event)" accept="image/*" required />
+<div id="containerP1" class="h-100">
+  <div id="containerP2" class="">
+    <form (ngSubmit)="salvarProduto()" class="gap-3 d-flex">
+      <div class="col-2">
+        <label class="form-label" for="">Nome do Produto</label>
+        <input
+          id="nameInput"
+          class="form-control"
+          type="text"
+          [(ngModel)]="produto.nome"
+          name="nome"
+          placeholder="Nome do produto"
+          required
+        />
+      </div>
+      <div class="col-2">
+        <label class="form-label" for="">Preço do Produto</label>
+        <input
+          id="precoInput"
+          class="form-control"
+          type="text"
+          [(ngModel)]="produto.preco"
+          name="nome"
+          placeholder="Preço do produto"
+          required
+        />
+      </div>
+      <div id="imagemInput" class="col-2">
+        <label class="form-label" for="">Imagem do produto</label>
+        <input
+          class="form-control"
+          type="file"
+          (change)="onFileSelected($event)"
+          accept="image/*"
+          required
+        />
+      </div>
 
-  <button type="submit">Salvar</button>
-</form>
+      <div class="col-2">
+        <label class="form-label p-0" for="">Categoria do Produto</label>
+        <select
+          class="form-select"
+          [(ngModel)]="produto.categoria"
+          id="categoriaOP"
+          (change)="abreOutro()"
+        >
+          <option *ngFor="let categoria of categorias" [value]="categoria">
+            {{ categoria }}
+          </option>
+          <option value="0">Outro</option>
+        </select>
+        <input
+          class="form-control mt-2"
+          type="text"
+          [(ngModel)]="produto.categoria"
+          name="nome"
+          placeholder="Digite uma nova categoria"
+          id="opOutro"
+          required
+        />
+      </div>
+      <div class="align-content-center">
+        <button class="btn ms-5 p-3" id="salvaProduto" type="submit">
+          Salvar
+        </button>
+      </div>
+    </form>
+
+    <div class="container">
+      <h2 class="text-center mt-5 text-white">Produtos cadastrados</h2>
+      <table class="table">
+        <thead>
+          <tr class="text-center">
+            <th>Nome</th>
+            <th>Preço</th>
+            <th>Categoria</th>
+            <th>Imagem</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let produto of produtos" class="text-center">
+            <td>{{ produto.nome }}</td>
+            <td>R${{ produto.preco }}</td>
+            <td>{{ produto.categoria }}</td>
+            <td class="d-flex justify-content-center">
+              <img
+                [src]="'http://localhost:8080/img/' + produto.imagem"
+                class="card-img-top"
+                [alt]="produto.nome"
+                style="width: 150px; object-fit: cover"
+              />
+            </td>
+            <td class="pt-4">
+              <button type="button" class="btn btn-warning me-4" (click)="editarProduto(produto)">Editar</button>
+              <button
+                type="button"
+                class="btn btn-danger"
+                (click)="excluirProduto(produto.id)"
+              >
+                Excluir
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

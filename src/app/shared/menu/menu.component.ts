@@ -22,23 +22,28 @@ export class MenuComponent {
       rota: '/cardapio',
       niveis: ['CLIENT', 'FUNC', 'ADMIN'],
     },
-    { descricao: 'Cadastros', rota: '/Cadastros', niveis: ['FUNC', 'ADMIN'] },
-    { descricao: 'Relatórios', rota: '/Relatórios', niveis: ['ADMIN'] },
+    { descricao: 'Cadastros', rota: '/gerenciar', niveis: ['FUNC', 'ADMIN'] },
+    { descricao: 'Relatórios', rota: '/relatorios', niveis: ['ADMIN'] },
   ];
 
   ngOnInit(): void {
-    this.router.events
-      .pipe(filter((event) => event instanceof NavigationEnd))
-      .subscribe((event) => {
-        const dadosToken = this.loginService.extrairDadosToken();
+    const dadosToken = this.loginService.extrairDadosToken();
+    if (dadosToken && dadosToken.roles) {
+      this.nivel = dadosToken.roles.replace(/^ROLE_/, '');
+    } else {
+      console.warn(
+        'Não foi possível determinar o nível do usuário a partir do token.'
+      );
+    }
+  }
+}
 
-        if (dadosToken && dadosToken.roles) {
-          this.nivel = dadosToken.roles.replace(/^ROLE_/, '');
-        } else {
-          console.warn(
-            'Não foi possível determinar o nível do usuário a partir do token.'
-          );
-        }
-      });
+export function verficaToken() {
+  debugger;
+  const token = localStorage.getItem('Token');
+
+  if (window.location.pathname === '/' && token == null) {
+    localStorage.setItem('Token', '0');
+    window.location.reload();
   }
 }
