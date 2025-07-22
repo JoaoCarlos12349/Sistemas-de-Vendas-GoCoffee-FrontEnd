@@ -1,6 +1,10 @@
 <div id="containerP1" class="h-100">
   <div id="containerP2" class="">
-    <h1 id="title" class="text-white">Meus dados</h1>
+    <div class="d-flex w-100 justify-content-between">
+      <h1 id="title" class="text-white">Meus dados</h1>
+      <h2 id="pontucao" class="pt-2 d-flex">Sua pontuação: <p class="ms-4">{{pessoa?.pontuacao}}</p></h2>
+    </div>
+
     <div class="d-flex w-100">
       <div class="w-50">
         <div class="dados col-6">
@@ -31,7 +35,14 @@
         </div>
         <div class="dados col-6">
           <label class="form-label" for="cpf">CPF</label>
-          <input id="cpfInput" class="form-control" type="text" name="cpf" [value]="pessoa?.cpf" disabled />
+          <input
+            id="cpfInput"
+            class="form-control"
+            type="text"
+            name="cpf"
+            [value]="pessoa?.cpf"
+            disabled
+          />
         </div>
         <div class="dados col-6">
           <label class="form-label" for="endereco">Endereço</label>
@@ -77,9 +88,10 @@
     </div>
 
     <div class="w-75 m-auto d-flex justify-content-end gap-3">
-        <button class="btn btn-danger" (click)="sairAction()">Sair</button>
-        <button id="btnAlterar" (click)="manipulaDados()" class="btn btn-warning">Alterar</button>
+      <button class="btn btn-danger" (click)="sairAction()">Sair</button>
+      <button id="btnAlterar" (click)="manipulaDados()" class="btn btn-warning">
+        Alterar
+      </button>
     </div>
-
   </div>
 </div>

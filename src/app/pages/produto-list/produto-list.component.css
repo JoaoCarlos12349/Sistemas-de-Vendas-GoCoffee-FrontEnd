@@ -30,9 +30,43 @@ label {
 }
 
 form{
-    margin-left: 15%;
+    margin-left: 10%;
 }
 
 #opOutro{
   display: none;
+}
+
+#formProduto{
+  width: 80%;
+}
+
+#disponibilidadeInput{
+  width: 70px;
+  margin-top: 50px;
+  margin-left: 0;
+  padding-top: 20px;
+}
+
+.form-switch {
+  padding-left: 0;
+}
+
+.form-check {
+  display: flex;
+  align-items: center;
+  min-height: 1.5rem;
+  margin-bottom: 0.125rem;
+}
+
+#tabelaP{
+  width: 90%;
+  margin: auto;
+}
+
+#disponibilidadeOut{
+  background-color: yellow;
+  margin: auto;
+  padding: 10px;
+  width: 50px;
 }

@@ -6,4 +6,5 @@ export class Pedido {
     valorTotal?: number;
     pontos?: number;
     usuario_id!: number;
+    formaPagamento?: string;
 }

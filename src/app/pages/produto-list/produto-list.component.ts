@@ -18,6 +18,9 @@ export class ProdutoListComponent {
     nome: '',
     preco: '',
     categoria: '',
+    estoque: '',
+    observacao: '',
+    situacao: false,
   };
 
   produtos: Produto[] = [];
@@ -46,6 +49,15 @@ export class ProdutoListComponent {
     debugger;
     const nomeL = document.getElementById('nameInput') as HTMLInputElement;
     const precoL = document.getElementById('precoInput') as HTMLInputElement;
+    const dispL = document.getElementById(
+      'disponibilidadeInput'
+    ) as HTMLInputElement;
+    const observaL = document.getElementById(
+      'observacaoInput'
+    ) as HTMLInputElement;
+    const estoqueL = document.getElementById(
+      'estoqueInput'
+    ) as HTMLInputElement;
     const categorialL = document.getElementById(
       'categoriaOP'
     ) as HTMLSelectElement;
@@ -53,6 +65,13 @@ export class ProdutoListComponent {
       const formData = new FormData();
       formData.append('nome', nomeL.value);
       formData.append('preco', precoL.value);
+      formData.append('estoque', estoqueL.value);
+      formData.append('observacao', observaL.value);
+      if (dispL.checked) {
+        formData.append('situacao', 'true');
+      } else {
+        formData.append('situacao', 'false');
+      }
       if (categorialL.value == '0') {
         const opOutro = document.getElementById('opOutro') as HTMLInputElement;
         formData.append('categoria', opOutro.value);
@@ -61,6 +80,11 @@ export class ProdutoListComponent {
           categorialL.options[categorialL.selectedIndex].text;
         formData.append('categoria', categoriaTexto);
       }
+      const obj: any = {};
+      formData.forEach((value, key) => {
+        obj[key] = value;
+      });
+      console.log(JSON.stringify(obj));
 
       formData.append('imagem', this.imagemSelecionada);
       this.produtoService.salvar(formData).subscribe({
@@ -75,6 +99,13 @@ export class ProdutoListComponent {
       produtoNovo.id = this.idSelect;
       produtoNovo.nome = nomeL.value;
       produtoNovo.preco = precoL.value;
+      produtoNovo.estoque = Number(estoqueL.value);
+      produtoNovo.observacao = observaL.value;
+      if (dispL.checked) {
+        produtoNovo.situacao = true;
+      } else {
+        produtoNovo.situacao = false;
+      }
       console.log(categorialL.value);
       if (categorialL.value == '0') {
         const opOutro = document.getElementById('opOutro') as HTMLInputElement;
@@ -117,6 +148,15 @@ export class ProdutoListComponent {
   editarProduto(produto: Produto) {
     const nomeL = document.getElementById('nameInput') as HTMLInputElement;
     const precoL = document.getElementById('precoInput') as HTMLInputElement;
+    const dispL = document.getElementById(
+      'disponibilidadeInput'
+    ) as HTMLInputElement;
+    const observaL = document.getElementById(
+      'observacaoInput'
+    ) as HTMLInputElement;
+    const estoqueL = document.getElementById(
+      'estoqueInput'
+    ) as HTMLInputElement;
     const categorialL = document.getElementById(
       'categoriaOP'
     ) as HTMLSelectElement;
@@ -131,5 +171,9 @@ export class ProdutoListComponent {
     precoL.value = produto.preco ?? '';
     categorialL.value = produto.categoria ?? '';
     this.idSelect = produto.id;
+    dispL.checked = produto.situacao ?? false;
+    dispL.value = (produto.situacao ?? false).toString();
+    observaL.value = produto.observacao ?? '';
+    estoqueL.value = (produto.estoque ?? 0).toString();
   }
 }

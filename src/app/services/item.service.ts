@@ -10,7 +10,7 @@ import { ItemPedido } from '../models/item-pedido';
 })
 export class ItemService {
 
-  private apiUrl = `${appSettings.apiBaseUrl}/itens`;
+  private apiUrl = `${appSettings.apiBaseUrl}/itens-pedido`;
 
   constructor(private http: HttpClient, private loginService: LoginService) { }
 

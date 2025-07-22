@@ -1,0 +1,26 @@
+<div id="containerP1" class="h-100">
+  <div id="containerP2" class="">
+    <h1 class="pt-5">Histórico de Vendas</h1>
+    <table class="table mt-5">
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>CPF</th>
+          <th>Data</th>
+          <th>Pedido</th>
+          <th>Valor</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let pedido of pedidosCompleto">
+          <td>{{ pedido.nomePessoa }}</td>
+          <td>{{ pedido.cpfPessoa }}</td>
+          <td>{{ pedido.dataPedido }}</td>
+          <td>{{ pedido.nomePedido }}</td>
+          <td>R${{ pedido.valorPedido }}</td>
+        </tr>
+      </tbody>
+    </table>
+    <h2 class="ps-4">Valor Total: R${{valorCompleto}}</h2>
+  </div>
+</div>

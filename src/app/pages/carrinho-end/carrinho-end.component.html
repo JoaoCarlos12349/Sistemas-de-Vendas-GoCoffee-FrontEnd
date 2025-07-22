@@ -1,0 +1,73 @@
+<div id="containerP1" class="h-100">
+  <div id="containerP2" class="m-auto h-75">
+    <h2 id="title" class="">Método de pagamento</h2>
+    <div class="h-75 p-5 bg-white">
+      <h3 class="text-uppercase">Pedido: {{ pedido }}</h3>
+      <h3 class="text-uppercase">Valor Total: R$ {{ valorTotal }}</h3>
+
+      <div class="pt-5 mt-5">
+        <h4 class="mb-3">Pagar com:</h4>
+        <div class="form-check form-check-inline">
+          <input
+            class="form-check-input"
+            type="radio"
+            name="pagamento"
+            id="pix"
+            value="PIX"
+            [(ngModel)]="formaPagamento"
+          />
+          <label class="form-check-label" for="pix">PIX</label>
+        </div>
+
+        <div class="form-check form-check-inline">
+          <input
+            class="form-check-input"
+            type="radio"
+            name="pagamento"
+            id="dinheiro"
+            value="Dinheiro"
+            [(ngModel)]="formaPagamento"
+          />
+          <label class="form-check-label" for="dinheiro">Dinheiro</label>
+        </div>
+
+        <div class="form-check form-check-inline">
+          <input
+            class="form-check-input"
+            type="radio"
+            name="pagamento"
+            id="debito"
+            value="Débito"
+            [(ngModel)]="formaPagamento"
+          />
+          <label class="form-check-label" for="debito">Débito</label>
+        </div>
+
+        <div class="form-check form-check-inline">
+          <input
+            class="form-check-input"
+            type="radio"
+            name="pagamento"
+            id="credito"
+            value="Crédito"
+            [(ngModel)]="formaPagamento"
+          />
+          <label class="form-check-label" for="credito">Crédito</label>
+        </div>
+      </div>
+      <select class="form-select mt-5 w-25" id="mesaOP">
+        <option value="0">Selecione uma mesa</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+      </select>
+    </div>
+    <div class="w-100 d-flex justify-content-between">
+      <button id="back" type="submit" class="btn" routerLink="/cardapio">Voltar</button>
+      <button id="next" type="submit" class="btn btn-login" (click)="finalizaPedido()">Finalizar</button>
+    </div>
+  </div>
+</div>

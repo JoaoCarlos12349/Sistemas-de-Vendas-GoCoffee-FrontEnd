@@ -14,6 +14,10 @@ import { GerenciarComponent } from './pages/gerenciar/gerenciar.component';
 import { PessoasListComponent } from './pages/pessoas-list/pessoas-list.component';
 import { UsuariosListComponent } from './pages/usuarios-list/usuarios-list.component';
 import { UsuarioPageComponent } from './pages/usuario-page/usuario-page.component';
+import { CarrinhoEndComponent } from './pages/carrinho-end/carrinho-end.component';
+import { RelatoriosComponent } from './pages/relatorios/relatorios.component';
+import { RpedidosComponent } from './pages/rpedidos/rpedidos.component';
+import { RvendasComponent } from './pages/rvendas/rvendas.component';
 
 export const routes: Routes = [
   { path: '', component: IndexComponent },
@@ -29,6 +33,10 @@ export const routes: Routes = [
   { path: 'gpessoas', component: PessoasListComponent },
   { path: 'gusuarios', component: UsuariosListComponent },
   { path: 'usuariopage', component: UsuarioPageComponent },
+  { path: 'carrinho', component: CarrinhoEndComponent },
+  { path: 'relatorios', component: RelatoriosComponent },
+  { path: 'rpedidos', component: RpedidosComponent },
+  { path: 'rvendas', component: RvendasComponent },
 ];
 
 @NgModule({

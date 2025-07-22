@@ -1,0 +1,36 @@
+#containerP2 {
+  width: 90%;
+}
+#containerP1 {
+  background-color: #3f3b2f;
+}
+
+#title{
+    padding-top: 8%;
+    color: white;
+}
+
+#next {
+  background-color: #b9f548; 
+  border: none;
+  color: black;
+  border-radius: 25px;
+  font-size: 0.8rem;
+  width: 10%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-transform: uppercase;
+  margin-top: 1rem;
+}
+#back {
+  background-color: lightgray; 
+  border: none;
+  color: black;
+  border-radius: 25px;
+  font-size: 0.8rem;
+  width: 10%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-transform: uppercase;
+  margin-top: 1rem;
+}

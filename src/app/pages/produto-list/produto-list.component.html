@@ -1,80 +1,129 @@
 <div id="containerP1" class="h-100">
   <div id="containerP2" class="">
-    <form class="gap-3 d-flex">
-      <div class="col-2">
-        <label class="form-label" for="">Nome do Produto</label>
-        <input
-          id="nameInput"
-          class="form-control"
-          type="text"
-          [(ngModel)]="produto.nome"
-          name="nome"
-          placeholder="Nome do produto"
-          required
-        />
+    <form id="formProduto" class="">
+      <div class="w-100 gap-3 d-flex">
+        <div class="col-3">
+          <label class="form-label" for="">Nome do Produto</label>
+          <input
+            id="nameInput"
+            class="form-control"
+            type="text"
+            [(ngModel)]="produto.nome"
+            name="nome"
+            placeholder="Nome do produto"
+            required
+          />
+        </div>
+        <div class="col-3">
+          <label class="form-label" for="">Preço do Produto</label>
+          <input
+            id="precoInput"
+            class="form-control"
+            type="number"
+            [(ngModel)]="produto.preco"
+            name="nome"
+            placeholder="Preço do produto"
+            required
+          />
+        </div>
+        <div id="imagemInput" class="col-3">
+          <label class="form-label" for="">Imagem do produto</label>
+          <input
+            class="form-control"
+            type="file"
+            (change)="onFileSelected($event)"
+            accept="image/*"
+            required
+          />
+        </div>
+
+        <div class="col-3">
+          <label class="form-label p-0" for="">Categoria do Produto</label>
+          <select
+            class="form-select"
+            [(ngModel)]="produto.categoria"
+            id="categoriaOP"
+            (change)="abreOutro()"
+          >
+            <option *ngFor="let categoria of categorias" [value]="categoria">
+              {{ categoria }}
+            </option>
+            <option value="0">Outro</option>
+          </select>
+          <input
+            class="form-control mt-2"
+            type="text"
+            [(ngModel)]="produto.categoria"
+            name="nome"
+            placeholder="Digite uma nova categoria"
+            id="opOutro"
+            required
+          />
+        </div>
       </div>
-      <div class="col-2">
-        <label class="form-label" for="">Preço do Produto</label>
-        <input
-          id="precoInput"
-          class="form-control"
-          type="text"
-          [(ngModel)]="produto.preco"
-          name="nome"
-          placeholder="Preço do produto"
-          required
-        />
-      </div>
-      <div id="imagemInput" class="col-2">
-        <label class="form-label" for="">Imagem do produto</label>
-        <input
-          class="form-control"
-          type="file"
-          (change)="onFileSelected($event)"
-          accept="image/*"
-          required
-        />
+      <div class="w-100 gap-3 d-flex mt-2">
+        <div class="col-3">
+          <label class="form-label" for="estoque">Estoque do Produto</label>
+          <input
+            id="estoqueInput"
+            class="form-control"
+            type="number"
+            [(ngModel)]="produto.estoque"
+            name="estoque"
+            placeholder="Estoque do produto"
+            required
+          />
+        </div>
+        <div class="col-6">
+          <label class="form-label" for="observacao">Observação</label>
+          <input
+            id="observacaoInput"
+            class="form-control"
+            type="text"
+            [(ngModel)]="produto.observacao"
+            name="observacao"
+            placeholder="Observacao do produto"
+            required
+          />
+        </div>
+        <div class="form-check form-switch col-3">
+          <label class="form-check-label" for="disponibilidadeInput"
+            >Disponibilidade</label
+          >
+          <input
+            class="form-check-input"
+            type="checkbox"
+            role="switch"
+            [(ngModel)]="produto.situacao"
+            id="disponibilidadeInput"
+          />
+        </div>
       </div>
 
-      <div class="col-2">
-        <label class="form-label p-0" for="">Categoria do Produto</label>
-        <select
-          class="form-select"
-          [(ngModel)]="produto.categoria"
-          id="categoriaOP"
-          (change)="abreOutro()"
+      <div class="d-flex justify-content-end">
+        <button
+          class="btn ms-5 mt-3 p-3"
+          id="salvaProduto"
+          type="submit"
+          (click)="salvarProduto()"
         >
-          <option *ngFor="let categoria of categorias" [value]="categoria">
-            {{ categoria }}
-          </option>
-          <option value="0">Outro</option>
-        </select>
-        <input
-          class="form-control mt-2"
-          type="text"
-          [(ngModel)]="produto.categoria"
-          name="nome"
-          placeholder="Digite uma nova categoria"
-          id="opOutro"
-          required
-        />
-      </div>
-      <div class="align-content-center">
-        <button class="btn ms-5 p-3" id="salvaProduto" type="submit" (click)="salvarProduto()">
           Salvar
         </button>
       </div>
     </form>
 
-    <div class="container">
+    <div id="tabelaP">
       <h2 class="text-center mt-5 text-white">Produtos cadastrados</h2>
       <table class="table">
         <thead>
           <tr class="text-center">
             <th>Nome</th>
             <th>Preço</th>
+            <th>Estoque</th>
             <th>Categoria</th>
             <th>Imagem</th>
+            <th>Observação</th>
+            <th>Disponibilidade</th>
             <th>Ações</th>
           </tr>
         </thead>
@@ -82,6 +131,7 @@
           <tr *ngFor="let produto of produtos" class="text-center">
             <td>{{ produto.nome }}</td>
             <td>R${{ produto.preco }}</td>
+            <td>{{ produto.estoque }}</td>
             <td>{{ produto.categoria }}</td>
             <td class="d-flex justify-content-center">
               <img
@@ -91,8 +141,27 @@
                 style="width: 150px; object-fit: cover"
               />
             </td>
+            <td>{{ produto.observacao }}</td>
+            <td>
+              <div class="form-check form-switch">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  role="switch"
+                  [checked]="produto.situacao"
+                  id="disponibilidadeOut"
+                  disabled
+                />
+              </div>
+            </td>
             <td class="pt-4">
-              <button type="button" class="btn btn-warning me-4" (click)="editarProduto(produto)">Editar</button>
+              <button
+                type="button"
+                class="btn btn-warning me-4"
+                (click)="editarProduto(produto)"
+              >
+                Editar
+              </button>
               <button
                 type="button"
                 class="btn btn-danger"

@@ -38,3 +38,8 @@ button {
   padding-top: 10px;
   padding-bottom: 10px;
 }
+
+#pontucao{
+  margin-right: 20%;
+  color: yellow;
+}

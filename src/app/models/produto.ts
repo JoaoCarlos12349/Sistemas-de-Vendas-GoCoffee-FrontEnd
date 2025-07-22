@@ -4,4 +4,7 @@ export class Produto {
     preco?: string;
     categoria?: string;
     imagem?: string;
+    estoque?: number;
+    situacao?: boolean;
+    observacao?: string;
 }
