@@ -1,0 +1,40 @@
+#containerP1 {
+  background-color: #3f3b2f;
+  padding-top: 5vh;
+}
+
+label {
+  margin-bottom: 0;
+  color: white;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+input {
+  border: none;
+  padding-top: 0;
+  font-weight: bold;
+  background-color: white;
+  padding: 0.4rem;
+}
+
+#title{
+    margin-left: 10%;
+    margin-bottom: 40px;
+}
+
+.dados{
+    margin-left: 15%;
+    margin-bottom: 20px;
+}
+
+button {
+  border: none;
+  color: black;
+  border-radius: 25px;
+  font-size: 0.8rem;
+  width: 100px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}

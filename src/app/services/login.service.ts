@@ -4,15 +4,15 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { jwtDecode } from 'jwt-decode';
 import { Token } from '../models/token';
+import { Router } from '@angular/router';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class LoginService {
-
   private apiUrl = `${appSettings.apiBaseUrl}/auth/login`;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private router: Router) {}
 
   autenticar(login: string, senha: string): Observable<Token> {
     const objetoJS = { login, senha };
@@ -20,15 +20,15 @@ export class LoginService {
   }
 
   salvarToken(token: string): void {
-    localStorage.setItem("Token", token);
+    localStorage.setItem('Token', token);
   }
 
   obterToken(): string {
-    return localStorage.getItem("Token") || "";
+    return localStorage.getItem('Token') || '';
   }
 
   limparToken(): void {
-    localStorage.removeItem("Token");
+    localStorage.removeItem('Token');
   }
 
   extrairDadosToken(): any | null {
@@ -46,8 +46,15 @@ export class LoginService {
     const token = this.obterToken();
     return {
       headers: new HttpHeaders({
-        'Authorization': 'Bearer ' + token
-      })
+        Authorization: 'Bearer ' + token,
+      }),
     };
+  }
+
+  permissaoAcesso() {
+    if (this.obterToken() == '') {
+      alert('Você deve realizar o login antes de acessar essa página');
+      this.router.navigate([""]);
+    }
   }
 }

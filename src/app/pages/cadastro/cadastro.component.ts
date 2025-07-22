@@ -38,6 +38,7 @@ export class CadastroComponent {
       nome: ['', Validators.required],
       login: ['', Validators.required],
       senha: ['', Validators.required],
+      cpf: ['', Validators.required],
     });
 
     this.mensagemErroLogin = '';
@@ -52,6 +53,7 @@ export class CadastroComponent {
         nome: this.formGroup.get('nome')?.value,
         sexo: '',
         endereco: '',
+        cpf: this.formGroup.get('cpf')?.value,
       };
 
       this.pessoaService.salvar(pessoa).subscribe({
@@ -76,14 +78,17 @@ export class CadastroComponent {
                     this.token = resposta;
                     this.loginService.salvarToken(this.token.acessToken);
                   },
-                }); 
+                });
             },
             error: () => {
-              alert('Erro ao registrar pessoa');
+              alert('Erro ao registrar usuário');
             },
-          }); 
+          });
         },
-      }); 
+        error: () => {
+          alert('Usuário já cadastrado');
+        },
+      });
     }
   }
 }

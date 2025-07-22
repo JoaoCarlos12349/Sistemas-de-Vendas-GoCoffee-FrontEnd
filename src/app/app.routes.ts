@@ -11,6 +11,9 @@ import { ProdutoListComponent } from './pages/produto-list/produto-list.componen
 import { HistoricoComponent } from './pages/historico/historico.component';
 import { PedidoListComponent } from './pages/pedido-list/pedido-list.component';
 import { GerenciarComponent } from './pages/gerenciar/gerenciar.component';
+import { PessoasListComponent } from './pages/pessoas-list/pessoas-list.component';
+import { UsuariosListComponent } from './pages/usuarios-list/usuarios-list.component';
+import { UsuarioPageComponent } from './pages/usuario-page/usuario-page.component';
 
 export const routes: Routes = [
   { path: '', component: IndexComponent },
@@ -23,6 +26,9 @@ export const routes: Routes = [
   { path: 'historico', component: HistoricoComponent },
   { path: 'resgatar', component: ResgatePontuacaoComponent },
   { path: 'gprodutos', component: ProdutoListComponent },
+  { path: 'gpessoas', component: PessoasListComponent },
+  { path: 'gusuarios', component: UsuariosListComponent },
+  { path: 'usuariopage', component: UsuarioPageComponent },
 ];
 
 @NgModule({

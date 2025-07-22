@@ -1,6 +1,6 @@
 <div id="containerP1" class="h-100">
   <div id="containerP2" class="">
-    <form (ngSubmit)="salvarProduto()" class="gap-3 d-flex">
+    <form class="gap-3 d-flex">
       <div class="col-2">
         <label class="form-label" for="">Nome do Produto</label>
         <input
@@ -60,7 +60,7 @@
         />
       </div>
       <div class="align-content-center">
-        <button class="btn ms-5 p-3" id="salvaProduto" type="submit">
+        <button class="btn ms-5 p-3" id="salvaProduto" type="submit" (click)="salvarProduto()">
           Salvar
         </button>
       </div>

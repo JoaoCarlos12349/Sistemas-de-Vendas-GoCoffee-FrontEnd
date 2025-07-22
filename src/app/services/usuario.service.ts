@@ -20,12 +20,20 @@ export class UsuarioService {
     );
   }
 
-  salvar(usuario: Usuario): Observable<Usuario> {   
-    return this.http.post<Usuario>(
-      this.apiUrl,
-      usuario,
-      this.loginService.gerarCabecalhoHTTP()
-    );
+  salvar(usuario: Usuario): Observable<Usuario> {
+    if (usuario.id) {
+      return this.http.put<Usuario>(
+        `${this.apiUrl}/${usuario.id}`,
+        usuario,
+        this.loginService.gerarCabecalhoHTTP()
+      );
+    } else {
+      return this.http.post<Usuario>(
+        this.apiUrl,
+        usuario,
+        this.loginService.gerarCabecalhoHTTP()
+      );
+    }
   }
 
   buscarPorId(id: number): Observable<Usuario> {

@@ -1,0 +1,80 @@
+<div id="containerP1" class="h-100">
+  <div id="containerP2" class="">
+    <form class="gap-3 d-flex">
+      <div class="col-2">
+        <label class="form-label" for="nome">Nome do Cliente</label>
+        <input
+          id="nomeInput"
+          class="form-control"
+          type="text"
+          name="nome"
+          placeholder="Nome do Cliente"
+          required
+        />
+      </div>
+      <div class="col-2">
+        <label class="form-label" for="sexo">Sexo do Cliente</label>
+        <input
+          id="sexoInput"
+          class="form-control"
+          type="text"
+          name="sexo"
+          placeholder="Sexo do Cliente"
+          required
+        />
+      </div>
+      <div class="col-2">
+        <label class="form-label" for="endereco">Endereço do Cliente</label>
+        <input
+          id="enderecoInput"
+          class="form-control"
+          type="text"
+          name="endereco"
+          placeholder="Endereço do Cliente"
+          required
+        />
+      </div>
+
+      <div class="align-content-center">
+        <button
+          class="btn ms-5 p-3"
+          id="salvaPessoa"
+          (click)="salvaPessoa()"
+          type="submit"
+        >
+          Cadastrar
+        </button>
+      </div>
+    </form>
+
+    <div class="container">
+      <h2 class="text-center mt-5 text-white">Clientes cadastrados</h2>
+      <table class="table">
+        <thead>
+          <tr class="text-center">
+            <th>Nome</th>
+            <th>CPF</th>
+            <th>Sexo</th>
+            <th>Endereço</th>
+            <th>Pontuação</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="text-center" *ngFor="let pessoa of pessoas">
+            <td>{{ pessoa.nome }}</td>
+            <td>{{ pessoa.cpf }}</td>
+            <td>{{ pessoa.sexo }}</td>
+            <td>{{ pessoa.endereco }}</td>
+            <td>{{ pessoa.pontuacao }}</td>
+
+            <td>
+              <button type="button" class="btn btn-warning me-4" (click)="editarPessoa(pessoa)">Editar</button>
+              <button type="button" class="btn btn-danger" (click)="excluirPessoa(pessoa.id)">Excluir</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

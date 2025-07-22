@@ -5,3 +5,24 @@ img{
 li{
     list-style: none;
 }
+
+#nameMenu {
+    text-decoration: none;
+    background-color: #3f3b2f;
+    color: white;
+    height: fit-content;
+    padding: 7px;
+    margin-top: 7px;
+    font-size: 1.2rem;
+    border-radius: 10px;
+    display: none;
+}
+
+.nav-link.active {
+  font-weight: bold;
+  border-bottom: 2px solid ;
+}
+
+#nameMenu:hover{
+    cursor: pointer;
+}

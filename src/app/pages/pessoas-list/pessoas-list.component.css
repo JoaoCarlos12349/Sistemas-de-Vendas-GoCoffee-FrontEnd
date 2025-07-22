@@ -1,0 +1,38 @@
+#containerP1 {
+  background-color: #3f3b2f;
+  padding-top: 5vh;
+}
+
+input {
+  border: none;
+  padding-top: 0;
+  font-weight: bold;
+  background-color: white;
+  padding: 0.4rem;
+}
+
+label {
+  margin-bottom: 0;
+  color: white;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+#salvaPessoa {
+  background-color: yellow; /* verde claro */
+  border: none;
+  color: black;
+  border-radius: 25px;
+  font-size: 0.8rem;
+
+  text-transform: uppercase;
+}
+
+form{
+    margin-left: 15%;
+}
+
+#opOutro{
+  display: none;
+}

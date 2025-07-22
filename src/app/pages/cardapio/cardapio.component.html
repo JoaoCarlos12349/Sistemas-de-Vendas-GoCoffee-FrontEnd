@@ -3,10 +3,20 @@
     <h4 class="pt-3 pb-3 text-white">Selecione os produtos</h4>
     <div class="bg-white h-100">
       <div class="bg-white d-flex justify-content-around pt-4">
-        <a class="text-uppercase nav-link">Tudo</a>
-        <a class="text-uppercase nav-link">Bebidas</a>
-        <a class="text-uppercase nav-link">Comidas</a>
-        <a class="text-uppercase nav-link">Doces</a>
+        <a
+          class="text-uppercase nav-link"
+          routerLinkActive="active"
+          [ngClass]="{ active: categoriaSelecionada === 'Tudo' }"
+          (click)="cardapioFilter('Tudo')"
+          >Tudo</a
+        >
+        <a
+          *ngFor="let categoria of categorias"
+          class="text-uppercase nav-link"
+          [ngClass]="{ active: categoriaSelecionada === categoria }"
+          (click)="cardapioFilter(categoria)"
+          >{{ categoria }}</a
+        >
       </div>
 
       <div
@@ -16,7 +26,7 @@
       >
         <div
           class="card text-center"
-          *ngFor="let produto of produtos; let i = index"
+          *ngFor="let produto of categoriasFilter; let i = index"
         >
           <h5 class="card-title">{{ produto.nome }}</h5>
           <img

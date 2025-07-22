@@ -18,6 +18,15 @@
   margin-top: 1rem;
 }
 
-.card{
+.card {
   border: none;
+}
+
+.nav-link.active {
+  font-weight: bold;
+  border-bottom: 2px solid;
+}
+
+.nav-link:hover {
+  cursor: pointer;
 }

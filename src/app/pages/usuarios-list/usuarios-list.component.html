@@ -1,0 +1,57 @@
+<div id="containerP1" class="h-100">
+  <div id="containerP2" class="">
+    <form id="formEditar" class="gap-3">
+      <div class="col-2">
+        <label class="form-label" for="login">Login do Usuário</label>
+        <input
+          id="loginInput"
+          class="form-control"
+          type="text"
+          name="login"
+          placeholder="Login do Usuário"
+          required
+        />
+      </div>
+
+      <div class="col-2">
+        <label class="form-label p-0" for="tipo">Tipo do usuário</label>
+        <select class="form-select" id="tipoOP" name="tipo">
+          <option value="ADMIN">Admistrador</option>
+          <option value="FUNC">Funcionário</option>
+          <option value="CLIENT">Cliente</option>
+        </select>
+      </div>
+
+      <div class="align-content-center">
+        <button class="btn ms-5 p-3" id="salvaUsuario" type="submit"(click)="salvarUsuario()">
+          Alterar
+        </button>
+      </div>
+    </form>
+
+    <div class="container">
+      <h2 class="text-center mt-5 text-white">Usuários cadastrados</h2>
+      <table class="table">
+        <thead>
+          <tr class="text-center">
+            <th>Login</th>
+            <th>Tipo</th>
+            <th>Nome</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="text-center" *ngFor="let usuario of usuarios">
+            <td>{{usuario.login}}</td>
+            <td>{{tipoUsuarioMap[usuario.tipoUsuario ?? ""]}}</td>
+            <td>{{usuario.pessoa.nome}}</td>
+
+            <td>
+              <button type="button" class="btn btn-warning me-4" (click)="editarusuario(usuario)">Editar</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

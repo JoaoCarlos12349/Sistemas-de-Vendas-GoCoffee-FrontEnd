@@ -1,8 +1,8 @@
-<nav class="navbar navbar-expand-lg ">
+<nav class="navbar navbar-expand-lg">
   <div class="d-flex justify-content-between w-100">
-    <img class="m-2" src="../../../assets/logo.svg" alt="" />
+    <a routerLink="/cardapio"><img class="m-2" src="../../../assets/logo.svg" alt="" /></a>
 
-      
+    <div id="menuP"  class="d-flex">
       <ul class="navbar-nav me-4 mt-2">
         <li class="nav-item" *ngFor="let item of menu">
           <a
@@ -15,7 +15,8 @@
           </a>
         </li>
       </ul>
-    
 
+      <a id="nameMenu" routerLink="/usuariopage" class="me-3">Olá, {{ pessoa?.nome }}</a>
+    </div>
   </div>
 </nav>
