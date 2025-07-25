@@ -9,5 +9,5 @@ export const appConfig: ApplicationConfig = {
 };
 
 export const appSettings = {
-  apiBaseUrl: 'http://localhost:8080',
+  apiBaseUrl: 'https://sistemas-de-vendas-gocoffee-backend.onrender.com',
 };
